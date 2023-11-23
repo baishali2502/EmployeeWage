@@ -1,4 +1,5 @@
 package EmployeeWage;
+import java.util.*;
 
 public class EmployeeWage 
 {
@@ -22,16 +23,38 @@ public class EmployeeWage
 	private static void partTimeWage(int partHours,double wagePerHour)
 	{
 		 double partWage = partHours * wagePerHour;
-	     System.out.println("Employee daily wage = "+partWage);
+	     System.out.println("Part-time Employee wage = "+partWage);
 	}
 	
+	private static void calculateWage(int hoursWorked, double wagePerHour) {
+
+        final int fullDayHours = 8;
+        final int partTimeHours = 4;
+        double dailyWage;
+
+        switch (hoursWorked) {
+            case fullDayHours:
+                dailywage(hoursWorked,wagePerHour);
+                break;
+            case partTimeHours:
+            	partTimeWage(hoursWorked,wagePerHour);
+                break;
+            default:
+                System.out.println("Invalid hours worked.");
+                dailyWage = 0.0;
+        }
+    }
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Welcome to Employee Wage Computation Program");
+		Scanner s = new Scanner(System.in);
+		System.out.println("Welcome to Employee Wage Computation Program\n");
 		System.out.println("Checking Attendance :");
 		checkAttendance();
 		dailywage(8,20.0);
 		partTimeWage(4,20.0);
+		System.out.print("Enter hours worked : ");
+		int hoursWorked = s.nextInt();
+		calculateWage(hoursWorked,20.0);
 	}
 	
 }
