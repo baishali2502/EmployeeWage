@@ -51,6 +51,15 @@ public class EmployeeWage
 		System.out.println("Monthly wages = "+amt);
 	}
 	
+	private static void wage(int hoursWorked,int days)
+	{
+		double perHourWage = 20.0;
+		double perDayWage = 8*perHourWage;
+		double ans1 = perHourWage*hoursWorked;
+		double ans2 = perDayWage*days;
+		System.out.println("Total wage of working "+hoursWorked+"hrs = "+ans1);
+		System.out.println("Total wage of working "+days+"days = "+ans2);		
+	}
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Welcome to Employee Wage Computation Program\n");
@@ -62,6 +71,7 @@ public class EmployeeWage
 		int hoursWorked = s.nextInt();
 		calculateWage(hoursWorked,20.0);
 		monthlywage(20);
+		wage(100,20);
 	}
 	
 }
