@@ -45,6 +45,12 @@ public class EmployeeWage
         }
     }
 	
+	private static void monthlywage(int days)
+	{
+		double amt =  8*20.0*days;
+		System.out.println("Monthly wages = "+amt);
+	}
+	
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Welcome to Employee Wage Computation Program\n");
@@ -52,9 +58,10 @@ public class EmployeeWage
 		checkAttendance();
 		dailywage(8,20.0);
 		partTimeWage(4,20.0);
-		System.out.print("Enter hours worked : ");
+		System.out.print("Enter hours worked (part-time=4 , full-time=8) : ");
 		int hoursWorked = s.nextInt();
 		calculateWage(hoursWorked,20.0);
+		monthlywage(20);
 	}
 	
 }
