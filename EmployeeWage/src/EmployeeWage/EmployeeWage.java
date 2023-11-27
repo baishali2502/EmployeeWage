@@ -1,8 +1,27 @@
 package EmployeeWage;
+import java.util.*;
 
-public class EmployeeWage 
+class employee_wage
 {
-	private static void checkAttendance() 
+	double perHourWage;
+	int fullHours;
+	int partHours;
+	
+	employee_wage(double perHourWage,int fullHours,int partHours)
+	{
+		this.perHourWage=perHourWage;
+		this.fullHours = fullHours;
+		this.partHours = partHours;
+	}
+	
+	/*
+	 * @desc:This methid checks attendance of employee using Random function
+	 * 
+	 * @params:none
+	 * 
+	 * @returns:void
+	 */
+	void checkAttendance() 
 	{
         double attendanceValue = Math.random();
 
@@ -12,19 +31,30 @@ public class EmployeeWage
             System.out.println("Employee is absent.");
         }
     }
-	
-	private static void dailywage(int hoursWorked, double wagePerHour) 
+
+	/*
+	 * @desc:This method calculates dailywage of employee
+	 * 
+	 * @params:none
+	 * 
+	 * @returns:void
+	 */
+	void dailywage() 
 	{
-        double dailyWage = hoursWorked * wagePerHour;
+        double dailyWage = perHourWage*fullHours;
         System.out.println("Employee daily wage = "+dailyWage);
     }
 	
+}
+
+public class EmployeeWage 
+{
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Welcome to Employee Wage Computation Program");
-		System.out.println("Checking Attendance :");
-		checkAttendance();
-		dailywage(8,20.0);
+		Scanner s = new Scanner(System.in);
+		System.out.println("Welcome to Employee Wage Computation Program\n");
+		employee_wage e = new employee_wage(20.0,8,4);
+		
 	}
 	
 }
