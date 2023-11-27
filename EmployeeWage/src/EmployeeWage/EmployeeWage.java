@@ -1,9 +1,26 @@
 package EmployeeWage;
 import java.util.*;
-
-public class EmployeeWage 
+class employee_wage
 {
-	private static void checkAttendance() 
+	double perHourWage;
+	int fullHours;
+	int partHours;
+	
+	employee_wage(double perHourWage,int fullHours,int partHours)
+	{
+		this.perHourWage=perHourWage;
+		this.fullHours = fullHours;
+		this.partHours = partHours;
+	}
+	
+	/*
+	 * @desc:This methid checks attendance of employee using Random function
+	 * 
+	 * @params:none
+	 * 
+	 * @returns:void
+	 */
+	void checkAttendance() 
 	{
         double attendanceValue = Math.random();
 
@@ -13,48 +30,63 @@ public class EmployeeWage
             System.out.println("Employee is absent.");
         }
     }
-	
-	private static void dailywage(int fullHours, double wagePerHour) 
+
+	/*
+	 * @desc:This method calculates dailywage of employee
+	 * 
+	 * @params:none
+	 * 
+	 * @returns:void
+	 */
+	void dailywage() 
 	{
-        double dailyWage = fullHours * wagePerHour;
+        double dailyWage = perHourWage*fullHours;
         System.out.println("Employee daily wage = "+dailyWage);
     }
-	
-	private static void partTimeWage(int partHours,double wagePerHour)
+
+	/*
+	 * @desc:This method calculates part-time wage of employee
+	 * 
+	 * @params:none
+	 * 
+	 * @returns:void
+	 */
+	void partTimeWage()
 	{
-		 double partWage = partHours * wagePerHour;
+		 double partWage = partHours * perHourWage;
 	     System.out.println("Part-time Employee wage = "+partWage);
 	}
-	
-	private static void calculateWage(int hoursWorked, double wagePerHour) {
+
+	/*
+	 * @desc:This method calculates employee wage using switchcase
+	 * 
+	 * @params:none
+	 * 
+	 * @returns:void
+	 */
+	void calculateWage_usingSwitch() {
 
         final int fullDayHours = 8;
         final int partTimeHours = 4;
-        double dailyWage;
-
+        Random rand = new Random(); 
+        int hoursWorked =  rand.nextInt(8); 
         switch (hoursWorked) {
             case fullDayHours:
-                dailywage(hoursWorked,wagePerHour);
+                dailywage();
                 break;
             case partTimeHours:
-            	partTimeWage(hoursWorked,wagePerHour);
+            	partTimeWage();
                 break;
             default:
                 System.out.println("Invalid hours worked.");
-                dailyWage = 0.0;
         }
     }
-	
+}
+public class EmployeeWage 
+{	
 	public static void main(String[] args) {
-		Scanner s = new Scanner(System.in);
-		System.out.println("Welcome to Employee Wage Computation Program\n");
-		System.out.println("Checking Attendance :");
-		checkAttendance();
-		dailywage(8,20.0);
-		partTimeWage(4,20.0);
-		System.out.print("Enter hours worked : ");
-		int hoursWorked = s.nextInt();
-		calculateWage(hoursWorked,20.0);
+		System.out.println("Welcome to Employee Wage Computation Program");
+		employee_wage e = new employee_wage(20.0,8,4);
 	}
 	
 }
