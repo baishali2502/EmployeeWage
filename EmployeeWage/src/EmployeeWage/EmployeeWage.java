@@ -1,8 +1,25 @@
 package EmployeeWage;
-
-public class EmployeeWage 
+class employee_wage
 {
-	private static void checkAttendance() 
+	double perHourWage;
+	int fullHours;
+	int partHours;
+	
+	employee_wage(double perHourWage,int fullHours,int partHours)
+	{
+		this.perHourWage=perHourWage;
+		this.fullHours = fullHours;
+		this.partHours = partHours;
+	}
+	
+	/*
+	 * @desc:This methid checks attendance of employee using Random function
+	 * 
+	 * @params:none
+	 * 
+	 * @returns:void
+	 */
+	void checkAttendance() 
 	{
         double attendanceValue = Math.random();
 
@@ -12,26 +29,41 @@ public class EmployeeWage
             System.out.println("Employee is absent.");
         }
     }
-	
-	private static void dailywage(int fullHours, double wagePerHour) 
+
+	/*
+	 * @desc:This method calculates dailywage of employee
+	 * 
+	 * @params:none
+	 * 
+	 * @returns:void
+	 */
+	void dailywage() 
 	{
-        double dailyWage = fullHours * wagePerHour;
+        double dailyWage = perHourWage*fullHours;
         System.out.println("Employee daily wage = "+dailyWage);
     }
-	
-	private static void partTimeWage(int partHours,double wagePerHour)
+
+	/*
+	 * @desc:This method calculates part-time wage of employee
+	 * 
+	 * @params:none
+	 * 
+	 * @returns:void
+	 */
+	void partTimeWage()
 	{
-		 double partWage = partHours * wagePerHour;
-	     System.out.println("Employee daily wage = "+partWage);
+		 double partWage = partHours * perHourWage;
+	     System.out.println("Part-time Employee wage = "+partWage);
 	}
+	
+}
+public class EmployeeWage 
+{
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Welcome to Employee Wage Computation Program");
-		System.out.println("Checking Attendance :");
-		checkAttendance();
-		dailywage(8,20.0);
-		partTimeWage(4,20.0);
+		employee_wage e = new employee_wage(20.0,8,4);
 	}
 	
 }
