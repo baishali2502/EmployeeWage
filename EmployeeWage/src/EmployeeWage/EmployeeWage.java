@@ -6,8 +6,9 @@ class employee_wage
 	double perHourWage;
 	int fullHours;
 	int partHours;
+	int workingDaysPerMonth;
 	
-	employee_wage(double perHourWage,int fullHours,int partHours)
+	employee_wage(double perHourWage,int fullHours,int partHours,int workingDaysPerMonth)
 	{
 		this.perHourWage=perHourWage;
 		this.fullHours = fullHours;
@@ -110,6 +111,31 @@ class employee_wage
 		double ans2 = perDayWage*days;
 		System.out.println("Total wage for working "+hoursWorked+"hrs = "+ans1);
 		System.out.println("Total wage for working "+days+"days = "+ans2);		
+	}
+	
+	 private void calculateEmployeeWage() {
+	        int totalWorkingDays = 0;
+	        int totalWorkingHours = 0;
+
+	        for (int day = 1; day <= workingDaysPerMonth; day++) {
+	            checkAttendance();
+	            Random rand = new Random();
+	            int hoursWorked = rand.nextInt(8); // Assuming a random number of hours worked each day
+
+	            totalWorkingHours += hoursWorked;
+	            totalWorkingDays++;
+
+	            if (hoursWorked == fullHours) {
+	            	dailywage();
+	            } else if (hoursWorked == partHours) {
+	            	partTimeWage();
+	            }
+	        }
+
+	        double monthlyWage = totalWorkingHours * perHourWage;
+	        System.out.println("Monthly wage"+" = " + monthlyWage);
+	        System.out.println("Total working days"+ " = " + totalWorkingDays);
+	    }
 	}
 }
 

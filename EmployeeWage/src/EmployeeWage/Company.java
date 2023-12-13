@@ -4,11 +4,12 @@ package EmployeeWage;
 
 public class Company extends employee_wage
 {
-	Company(double perHourWage, int fullHours, int partHours) {
-		super(perHourWage, fullHours, partHours);
-		
-	}
-	String companyname;
-	int cid;
+	private String companyName;
+    private double totalWage; // stores totalwage
+
+    public Company(String companyName, double perHourWage, int fullHours, int partHours, int workingDaysPerMonth) {
+        super(perHourWage, fullHours, partHours, workingDaysPerMonth);
+        this.companyName = companyName;
+    }
 
 }
