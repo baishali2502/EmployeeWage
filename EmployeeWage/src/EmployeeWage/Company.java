@@ -12,4 +12,13 @@ public class Company extends employee_wage
         this.companyName = companyName;
     }
 
+	public void setTotalWage(double totalWage) {
+		this.totalWage = totalWage;
+		
+	}
+
+	public void displayTotalWage() {
+		System.out.println("Total wage for company -"+companyName+" = "+totalWage);
+	}
+
 }
