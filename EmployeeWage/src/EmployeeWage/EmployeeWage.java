@@ -95,12 +95,4 @@ class employee_wage
 		System.out.println("Monthly wages = "+amt);
 	}
 }
-public class EmployeeWage 
-{
-	
-	public static void main(String[] args) {
-		System.out.println("Welcome to Employee Wage Computation Program");
-		employee_wage e = new employee_wage(20.0,8,4);
-	}
-	
-}
+
