@@ -20,6 +20,12 @@ public class Company extends employee_wage
 		
 	}
 
+//  @desc:This method gets totoal-wage of employee
+	public double getTotalWage()
+	{
+		return totalWage;
+	}
+
 	public void displayTotalWage() {
 		System.out.println("Total wage for company -"+companyName+" = "+totalWage);
 	}
