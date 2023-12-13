@@ -5,11 +5,14 @@ package EmployeeWage;
 public class Company extends employee_wage
 {
 	private String companyName;
-    private double totalWage; // stores totalwage
+    private double totalWage; // stores totalwage of employee
+    private double dailywage; // stores dailywage of employee
 
     public Company(String companyName, double perHourWage, int fullHours, int partHours, int workingDaysPerMonth) {
         super(perHourWage, fullHours, partHours, workingDaysPerMonth);
         this.companyName = companyName;
+        this.dailywage = dailywage();
+        this.totalWage = calculateEmployeeWage();
     }
 
 	public void setTotalWage(double totalWage) {

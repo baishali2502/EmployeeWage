@@ -40,10 +40,11 @@ class employee_wage
 	 * 
 	 * @returns:void
 	 */
-	void dailywage() 
+	double dailywage() 
 	{
         double dailyWage = perHourWage*fullHours;
         System.out.println("Employee daily wage = "+dailyWage);
+        return dailyWage;
     }
 
 	/*
@@ -113,7 +114,7 @@ class employee_wage
 		System.out.println("Total wage for working "+days+"days = "+ans2);		
 	}
 	
-	 private void calculateEmployeeWage() {
+	 protected double calculateEmployeeWage() {
 	        int totalWorkingDays = 0;
 	        int totalWorkingHours = 0;
 
@@ -135,6 +136,7 @@ class employee_wage
 	        double monthlyWage = totalWorkingHours * perHourWage;
 	        System.out.println("Monthly wage"+" = " + monthlyWage);
 	        System.out.println("Total working days"+ " = " + totalWorkingDays);
+	        return monthlyWage;
 	    }
 	}
 }
